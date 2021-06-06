@@ -1,3 +1,5 @@
 /.idea
 /bin
 /obj
+/blog.db-wal
+/blog.db-shm
