@@ -1,4 +1,6 @@
 on:
+  workflow_dispatch:
+    branches: [ main ]
   pull_request: {}
   push:
     branches:
