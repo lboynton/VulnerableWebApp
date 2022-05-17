@@ -7,7 +7,7 @@ namespace VulnerableWebApp.Controllers.Api
 {
     [ApiController]
     [Route("/api/posts")]
-    public class Posts
+    public class Posts : ControllerBase
     {
         private readonly BlogContext _context;
 
