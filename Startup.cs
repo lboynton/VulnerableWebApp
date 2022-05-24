@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using VulnerableWebApp.Models;
 
 namespace VulnerableWebApp
@@ -26,6 +27,10 @@ namespace VulnerableWebApp
         {
             services.AddRazorPages();
             services.AddDbContext<BlogContext>();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.TypeNameHandling = TypeNameHandling.All;
+            });
             services.AddMvc(options =>
             {
                 options.EnableEndpointRouting = false;
