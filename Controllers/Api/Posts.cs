@@ -27,7 +27,7 @@ namespace VulnerableWebApp.Controllers.Api
             return _context.Posts.FromSqlRaw("Select * from Posts where Id = " + id).FirstOrDefault();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("mk2/{id}")]
         public Post GetPostMk2(string id)
         {
             return _context.Posts.FromSqlRaw("Select * from Posts where Id IN (" + id + ")").FirstOrDefault();
